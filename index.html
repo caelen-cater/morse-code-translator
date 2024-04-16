@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Morse Code Translator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Rubik', sans-serif;
+            background: url(video.mp4) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            color: white;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 50px;
+            border-radius: 15px;
+        }
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-right: -800px;
+            border-radius: 15px;
+        }
+        .output-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 15px;
+        }
+        #inputBox, #outputBox {
+            width: 300px;
+            height: 500px;
+            resize: none;
+            margin-bottom: 20px;
+            border-radius: 15px;
+        }
+        #numberInput {
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+            text-align: left;
+            margin-bottom: 20px;
+            border-radius: 15px;
+        }
+        #translateButton {
+            width: 300px;
+            height: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            background-image: url(button.png);
+            background-size: 100% auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 15px;
+        }
+        h1 {
+            margin: 0;
+            align-self: flex-start;
+        }
+        .multiplier-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+            border-radius: 15px;
+        }
+        .github-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-container">
+            <textarea id="inputBox" placeholder="Enter text or Morse code here"></textarea>
+            <div class="multiplier-container">
+                <h1>Multiplier</h1>
+                <input type="number" id="numberInput" min="1" value="1">
+            </div>
+        </div>
+        <div class="output-container">
+            <textarea id="outputBox" readonly onclick="this.select();"></textarea>
+            <button id="translateButton">Translate</button>
+        </div>
+    </div>
+    <a href="https://github.com/caelen-cater/morse-code-translator" class="github-icon" target="_blank">
+        <i class="fa fa-github" style="color: white; font-size: 40px;"></i>
+    </a>
+    <script src="script.js"></script>
+    <video autoplay loop muted style="position:fixed;right:0;bottom:0;min-width:100%;min-height:100%;z-index:-1;">
+        <source src="video.mp4" type="video/mp4">
+    </video>
+</body>
+</html>
