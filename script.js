@@ -1,17 +1,17 @@
 const morseCodeDict = {
-  'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--', 'Z': '--..', ' ': '/', '/': '-..-.', '.': '.-.-.-', '-': '-....-', '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...', '8': '---..', '9': '----.', '_': '..--.-', ',': '--..--', ';': '-.-.-.', ':': '---...', '!': '-.-.--', '?': '..--..', '+': '-.-.-', '=': '-...-', '@': '-.--.-.', '&': '.-...', '%': '---.-', '#': '--.-.', '*': '...-.', '$': '...-..-', '~': '.---..', '^': '......', '"': '.-..-.'
+  'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--', 'Z': '--..', ' ': '/', '/': '-..-.', '.': '.-.-.-', '-': '-....-'
 };
 
 const reverseMorseCodeDict = Object.fromEntries(Object.entries(morseCodeDict).map(([k, v]) => [v, k]));
 
 function englishToMorse(input) {
-  return input.toUpperCase().split(' ').map(word => word.split('').map(char => morseCodeDict[char] || char).join(' ')).join(' / ');
+  return input.toUpperCase().split(' ').map(word => word.split('').map(char => morseCodeDict[char] || char).join(' ')).join('   ');
 }
 
 function morseToEnglish(input) {
   let result = input;
   while (/^[\.\-\/\s]*$/.test(result)) {
-    result = result.split(' / ').map(word => word.split(' ').map(symbol => reverseMorseCodeDict[symbol] || '').join('')).join(' ');
+    result = result.split('   ').map(word => word.split(' ').map(symbol => reverseMorseCodeDict[symbol] || '').join('')).join(' ');
   }
   return result;
 }
